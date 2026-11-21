@@ -8,6 +8,7 @@
   <title>GreenMobility — Le covoiturage étudiant, simplement</title>
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script type="module" src="assets/js/animations.js"></script>
   <script defer src="assets/js/model.js"></script>
   <script defer src="assets/js/view.js"></script>
   <script defer src="assets/js/controller.js"></script>
@@ -74,6 +75,7 @@
     </section>
     <section class="cta-band container"><div><span class="eyebrow">Chaque place compte</span><h2>Vous avez une place libre ?<br><span>Faites-en profiter quelqu’un.</span></h2></div><a class="button button-light" href="proposer.html">Proposer un trajet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><i class="cta-decoration fa-solid fa-leaf" aria-hidden="true"></i></section>
   </main>
+  <dialog class="detail-dialog" id="trip-dialog" aria-labelledby="dialog-title"><div class="dialog-inner"><button class="icon-button dialog-close" type="button" aria-label="Fermer"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button><div id="trip-detail"></div></div></dialog>
   <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a><p>La mobilité durable se construit ensemble.</p><span>Projet étudiant · Démonstration locale sans paiement</span></div></footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>

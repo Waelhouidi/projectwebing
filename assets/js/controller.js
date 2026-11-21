@@ -19,6 +19,8 @@
   }
 
   function wireDetails(container) {
+    const dialog = document.getElementById("trip-dialog");
+    const detail = document.getElementById("trip-detail");
     container.addEventListener("click", function (event) {
       const trigger = event.target.closest("[data-detail]");
       if (!trigger) return;
@@ -27,10 +29,24 @@
         View.showToast("Ce trajet n’est plus disponible.");
         return;
       }
-      const dialog = document.getElementById("trip-dialog");
-      document.getElementById("trip-detail").innerHTML = View.renderDetails(trip);
+      detail.innerHTML = View.renderDetails(trip);
       dialog.showModal();
     });
+    dialog.querySelector(".dialog-close").addEventListener("click", function () { dialog.close(); });
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+
+  function confirmAction(dialog, message, actionLabel, action) {
+    const actionButton = dialog.querySelector("[data-confirm-action]");
+    dialog.querySelector("#confirm-message").textContent = message;
+    actionButton.textContent = actionLabel;
+    actionButton.onclick = function () {
+      dialog.close();
+      action();
+    };
+    dialog.showModal();
   }
 
   function initHome() {
@@ -109,11 +125,6 @@
     document.getElementById("reset-filters").addEventListener("click", reset);
     document.getElementById("empty-reset").addEventListener("click", reset);
     wireDetails(container);
-    const dialog = document.getElementById("trip-dialog");
-    dialog.querySelector(".dialog-close").addEventListener("click", function () { dialog.close(); });
-    dialog.addEventListener("click", function (event) {
-      if (event.target === dialog) dialog.close();
-    });
     render();
   }
 
@@ -316,22 +327,37 @@
         return '<article class="my-trip-card"><div class="my-trip-main"><div class="my-trip-route"><strong>' + View.escapeHtml(trip.departure) + ' <span>→</span> ' + View.escapeHtml(trip.destination) + '</strong><span>' + View.escapeHtml(View.formatDate(trip.date)) + ' · ' + View.escapeHtml(trip.time) + '</span></div><span class="status-badge ' + (trip.seatsAvailable ? "status-green" : "status-muted") + '">' + View.escapeHtml(trip.seatsAvailable) + ' place(s) libre(s)</span></div><div class="my-trip-meta"><span>' + View.escapeHtml(trip.price) + ' TND / place</span><span>Réf. ' + View.escapeHtml(trip.reference) + '</span></div><div class="offer-actions"><a class="text-link" href="proposer.html?edit=' + encodeURIComponent(trip.id) + '">Modifier</a><button class="text-link destructive-link" type="button" data-remove-offer="' + View.escapeHtml(trip.id) + '">Retirer</button></div></article>';
       }).join("") : View.emptyMessage("Aucune offre publiée.", "Proposez une place libre dans votre prochain trajet.");
     }
+    const confirmDialog = document.getElementById("confirm-dialog");
     document.addEventListener("click", function (event) {
       const cancel = event.target.closest("[data-cancel-booking]");
       const remove = event.target.closest("[data-remove-offer]");
-      try {
-        if (cancel && global.confirm("Annuler cette réservation ? Les places seront de nouveau disponibles.")) {
-          Model.cancelBooking(cancel.dataset.cancelBooking);
-          View.showToast("Réservation annulée.");
-          render();
-        } else if (remove && global.confirm("Retirer cette offre de votre catalogue local ?")) {
-          Model.removeOffer(remove.dataset.removeOffer);
-          View.showToast("Offre retirée.");
-          render();
-        }
-      } catch (error) {
-        View.showToast(error.message);
+      if (!cancel && !remove) return;
+
+      if (cancel) {
+        confirmAction(confirmDialog, "Les places seront libérées et votre réservation passera au statut annulé.", "Annuler la réservation", function () {
+          try {
+            Model.cancelBooking(cancel.dataset.cancelBooking);
+            View.showToast("Réservation annulée.");
+            render();
+          } catch (error) {
+            View.showToast(error.message);
+          }
+        });
+      } else {
+        confirmAction(confirmDialog, "Cette offre sera retirée de votre catalogue local. Cette action est définitive.", "Retirer l’offre", function () {
+          try {
+            Model.removeOffer(remove.dataset.removeOffer);
+            View.showToast("Offre retirée.");
+            render();
+          } catch (error) {
+            View.showToast(error.message);
+          }
+        });
       }
+    });
+    confirmDialog.querySelector("[data-confirm-cancel]").addEventListener("click", function () { confirmDialog.close(); });
+    confirmDialog.addEventListener("click", function (event) {
+      if (event.target === confirmDialog) confirmDialog.close();
     });
     render();
   }

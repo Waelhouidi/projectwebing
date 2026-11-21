@@ -4,6 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Consultez vos offres, réservations et statistiques de mobilité GreenMobility.">
   <title>Mes trajets et statistiques — GreenMobility</title><link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script type="module" src="assets/js/animations.js"></script>
   <script defer src="assets/js/model.js"></script><script defer src="assets/js/view.js"></script><script defer src="assets/js/controller.js"></script><script defer src="assets/js/app.js"></script>
 </head>
 <body data-page="mine">
@@ -19,6 +20,17 @@
     <section class="safety-panel"><div class="safety-icon"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i></div><div><span class="eyebrow">Un trajet serein</span><h2>Quelques réflexes utiles</h2><p>Choisissez un lieu de rencontre public, confirmez l’heure et les détails du trajet avant le départ, et partagez votre itinéraire avec une personne de confiance. Faites confiance à votre jugement.</p></div><div class="safety-tag">Conseils de sécurité</div></section>
     <p class="method-note">* Estimation indicative : 120 g de CO₂ évités par passager et par kilomètre partagé, avec des distances approximatives. Il ne s’agit pas d’une mesure réelle.</p>
   </main>
+  <dialog class="confirm-dialog" id="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+    <div class="confirm-inner">
+      <span class="confirm-icon"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>
+      <h2 id="confirm-title">Confirmer cette action</h2>
+      <p id="confirm-message"></p>
+      <div class="confirm-actions">
+        <button class="button confirm-cancel" type="button" data-confirm-cancel>Garder</button>
+        <button class="button confirm-danger" type="button" data-confirm-action>Confirmer</button>
+      </div>
+    </div>
+  </dialog>
   <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a><p>La mobilité durable se construit ensemble.</p><span>Données enregistrées localement dans votre navigateur</span></div></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
