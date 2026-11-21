@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f8f2">
+  <meta name="description" content="GreenMobility aide les étudiants à partager leurs trajets et à voyager plus durablement.">
+  <title>GreenMobility — Le covoiturage étudiant, simplement</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script defer src="assets/js/model.js"></script>
+  <script defer src="assets/js/view.js"></script>
+  <script defer src="assets/js/controller.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="GreenMobility, accueil"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+        <a href="index.html" data-nav="home">Accueil</a>
+        <a href="rechercher.html" data-nav="search">Rechercher</a>
+        <a href="proposer.html" data-nav="offer">Proposer</a>
+        <a href="reserver.html" data-nav="book">Réserver</a>
+        <a href="mes-trajets.html" data-nav="mine">Mes trajets</a>
+      </nav>
+    </div>
+  </header>
+  <main id="contenu">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> La mobilité étudiante, autrement</span>
+          <h1>La route est plus belle <span>à plusieurs.</span></h1>
+          <p>Partagez vos trajets, faites des économies et avancez ensemble vers une mobilité plus durable.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="rechercher.html">Trouver un trajet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a class="text-link" href="proposer.html">Vous conduisez ? Proposez un trajet</a>
+          </div>
+          <div class="hero-trust"><div class="avatar-stack" aria-hidden="true"><span>Y</span><span>S</span><span>A</span><span>+</span></div><span>Une communauté étudiante qui partage la route</span></div>
+        </div>
+        <div class="hero-art" aria-label="Illustration d'un trajet partagé">
+          <div class="art-sun"></div><div class="art-hill art-hill-back"></div><div class="art-hill art-hill-front"></div>
+          <div class="art-road"></div>
+          <div class="art-card"><span class="art-card-icon"><i class="fa-solid fa-car-side" aria-hidden="true"></i></span><div><strong>Sousse <span>→</span> Tunis</strong><small>Demain · 08:30</small></div><b>12 TND</b></div>
+          <div class="art-caption"><span class="caption-icon"><i class="fa-solid fa-leaf" aria-hidden="true"></i></span><span><strong>Un trajet partagé,</strong><br>un petit geste pour demain.</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="stats-strip" aria-label="Chiffres clés de démonstration">
+      <div class="container stats-grid">
+        <div><span class="stat-number" data-stat="trips">—</span><span class="stat-label">trajets proposés</span></div>
+        <div><span class="stat-number" data-stat="seats">—</span><span class="stat-label">places disponibles</span></div>
+        <div><span class="stat-number" data-stat="co2">—</span><span class="stat-label">kg de CO₂ estimés évités*</span></div>
+        <small>* Estimation indicative basée sur les réservations enregistrées sur cet appareil.</small>
+      </div>
+    </section>
+    <section class="section container">
+      <div class="section-heading"><div><span class="eyebrow">Pourquoi partager ?</span><h2>Un trajet, trois bonnes raisons.</h2></div><p>De petits choix du quotidien peuvent faire une vraie différence.</p></div>
+      <div class="benefit-grid">
+        <article class="benefit-card"><span class="benefit-icon icon-green"><i class="fa-solid fa-wallet" aria-hidden="true"></i></span><h3>Moins de dépenses</h3><p>Partagez les frais du trajet et gardez votre budget étudiant pour l’essentiel.</p></article>
+        <article class="benefit-card"><span class="benefit-icon icon-yellow"><i class="fa-solid fa-sun" aria-hidden="true"></i></span><h3>Moins d’émissions</h3><p>En voyageant ensemble, vous réduisez le nombre de voitures sur la route.</p></article>
+        <article class="benefit-card"><span class="benefit-icon icon-lilac"><i class="fa-solid fa-heart" aria-hidden="true"></i></span><h3>Plus de rencontres</h3><p>Faites connaissance avec d’autres étudiants qui prennent le même chemin.</p></article>
+      </div>
+    </section>
+    <section class="section section-tint">
+      <div class="container">
+        <div class="section-heading"><div><span class="eyebrow">Ils partent bientôt</span><h2>Des trajets qui vous rapprochent.</h2></div><div class="carousel-controls"><button class="icon-button" type="button" data-carousel="prev" aria-label="Trajets précédents"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button><button class="icon-button" type="button" data-carousel="next" aria-label="Trajets suivants"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div>
+        <div class="trip-grid featured-grid" id="featured-trips" aria-live="polite"></div>
+        <div class="center-action"><a class="button button-outline" href="rechercher.html">Explorer tous les trajets <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+      </div>
+    </section>
+    <section class="cta-band container"><div><span class="eyebrow">Chaque place compte</span><h2>Vous avez une place libre ?<br><span>Faites-en profiter quelqu’un.</span></h2></div><a class="button button-light" href="proposer.html">Proposer un trajet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><i class="cta-decoration fa-solid fa-leaf" aria-hidden="true"></i></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a><p>La mobilité durable se construit ensemble.</p><span>Projet étudiant · Démonstration locale sans paiement</span></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

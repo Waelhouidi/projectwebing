@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Proposez une place dans votre trajet avec GreenMobility.">
+  <title>Proposer un trajet — GreenMobility</title><link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script defer src="assets/js/model.js"></script><script defer src="assets/js/view.js"></script><script defer src="assets/js/controller.js"></script><script defer src="assets/js/app.js"></script>
+</head>
+<body data-page="offer">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="GreenMobility, accueil"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" aria-label="Navigation principale"><a href="index.html" data-nav="home">Accueil</a><a href="rechercher.html" data-nav="search">Rechercher</a><a href="proposer.html" data-nav="offer">Proposer</a><a href="reserver.html" data-nav="book">Réserver</a><a href="mes-trajets.html" data-nav="mine">Mes trajets</a></nav></div></header>
+  <main class="container page-main" id="contenu">
+    <div class="page-heading"><div><span class="eyebrow">Partagez la route</span><h1>Proposez un trajet.</h1><p>Publiez votre offre en quelques instants. Aucun compte n’est nécessaire.</p></div></div>
+    <div class="form-layout">
+      <form class="form-card" id="offer-form" novalidate>
+        <section class="form-section"><div class="form-section-title"><span class="step-number">01</span><div><h2>Qui conduit ?</h2><p>Ces informations seront visibles par les passagers.</p></div></div>
+          <div class="field-grid"><label class="field"><span>Nom du conducteur *</span><input name="driver" required maxlength="70" autocomplete="name" placeholder="Votre nom"><small class="field-error" data-error="driver"></small></label><label class="field"><span>Email *</span><input name="email" required type="email" maxlength="120" autocomplete="email" placeholder="vous@exemple.tn"><small class="field-error" data-error="email"></small></label></div>
+        </section>
+        <section class="form-section"><div class="form-section-title"><span class="step-number">02</span><div><h2>Votre itinéraire</h2><p>Indiquez les détails pratiques du déplacement.</p></div></div>
+          <div class="field-grid"><label class="field"><span>Ville de départ *</span><input name="departure" required maxlength="60" placeholder="Ex. Sousse"><small class="field-error" data-error="departure"></small></label><label class="field"><span>Destination *</span><input name="destination" required maxlength="60" placeholder="Ex. Tunis"><small class="field-error" data-error="destination"></small></label><label class="field"><span>Date *</span><input name="date" required type="date"><small class="field-error" data-error="date"></small></label><label class="field"><span>Heure *</span><input name="time" required type="time"><small class="field-error" data-error="time"></small></label></div>
+        </section>
+        <section class="form-section"><div class="form-section-title"><span class="step-number">03</span><div><h2>Les places et les détails</h2><p>Le prix est par personne et le paiement n’est pas géré sur le site.</p></div></div>
+          <div class="field-grid"><label class="field"><span>Places disponibles * (1 à 4)</span><input name="seats" required type="number" min="1" max="4" step="1" value="3"><small class="field-error" data-error="seats"></small></label><label class="field"><span>Prix par place (TND) *</span><input name="price" required type="number" min="0" max="1000" step="0.5" placeholder="Ex. 12"><small class="field-error" data-error="price"></small></label><label class="field field-full"><span>Point de rencontre et précisions</span><textarea name="notes" rows="3" maxlength="300" placeholder="Ex. Devant la gare, bagage cabine seulement…"></textarea></label></div>
+        </section>
+        <section class="offer-preview" id="offer-preview" aria-live="polite" hidden>
+          <span class="eyebrow">Aperçu avant publication</span>
+          <h2 id="preview-route">Départ → Destination</h2>
+          <div class="preview-facts"><span id="preview-driver">Conducteur</span><span id="preview-date">Date et heure</span><span id="preview-seats">Places disponibles</span><strong id="preview-price">Prix par place</strong></div>
+          <p id="preview-notes"></p>
+        </section>
+        <div class="form-actions"><p class="form-footnote">* Champs obligatoires. Votre offre sera enregistrée uniquement dans ce navigateur.</p><button class="button button-primary" type="submit">Vérifier et publier <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+        <div class="form-feedback" id="offer-feedback" role="status" aria-live="polite"></div>
+      </form>
+      <aside class="side-note"><span class="side-note-icon"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i></span><h2>Le covoiturage, en confiance.</h2><p>Choisissez un point de rencontre public, confirmez les détails avec vos passagers et prenez le temps de faire connaissance.</p><div class="note-divider"></div><p class="small-muted">GreenMobility est une démonstration locale : les offres ne sont pas publiées en ligne.</p></aside>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a><p>La mobilité durable se construit ensemble.</p><span>Données fictives · aucun service backend</span></div></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

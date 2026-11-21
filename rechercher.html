@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recherchez un trajet de covoiturage étudiant sur GreenMobility.">
+  <title>Rechercher un trajet — GreenMobility</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script defer src="assets/js/model.js"></script><script defer src="assets/js/view.js"></script><script defer src="assets/js/controller.js"></script><script defer src="assets/js/app.js"></script>
+</head>
+<body data-page="search">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="GreenMobility, accueil"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" aria-label="Navigation principale"><a href="index.html" data-nav="home">Accueil</a><a href="rechercher.html" data-nav="search">Rechercher</a><a href="proposer.html" data-nav="offer">Proposer</a><a href="reserver.html" data-nav="book">Réserver</a><a href="mes-trajets.html" data-nav="mine">Mes trajets</a></nav></div></header>
+  <main class="container page-main" id="contenu">
+    <div class="page-heading"><div><span class="eyebrow">À vous la route</span><h1>Trouvez votre prochain trajet.</h1><p>Les places disponibles près de chez vous et de votre campus.</p></div><a class="button button-primary" href="proposer.html">+ Proposer un trajet</a></div>
+    <section class="filter-panel" aria-label="Filtres de recherche">
+      <div class="filter-grid">
+        <label class="field"><span>Départ</span><input id="filter-departure" type="search" placeholder="Ex. Sousse" autocomplete="off"></label>
+        <label class="field"><span>Destination</span><input id="filter-destination" type="search" placeholder="Ex. Tunis" autocomplete="off"></label>
+        <label class="field"><span>Date</span><input id="filter-date" type="date"></label>
+        <label class="field"><span>Prix maximum (TND)</span><input id="filter-price" type="number" min="0" step="1" placeholder="Tous les prix"></label>
+        <label class="field"><span>Trier par</span><select id="sort-by"><option value="date">Date la plus proche</option><option value="price">Prix croissant</option></select></label>
+      </div>
+      <button class="text-link reset-link" type="button" id="reset-filters">Effacer les filtres</button>
+    </section>
+    <div class="results-bar"><p id="results-count" aria-live="polite"></p><span class="demo-note">Trajets fictifs · données enregistrées sur cet appareil</span></div>
+    <div class="trip-grid catalog-grid" id="trip-results"></div>
+    <div class="empty-state" id="empty-results" hidden><span class="empty-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span><h2>Aucun trajet trouvé</h2><p>Essayez d’élargir vos critères ou de réinitialiser les filtres.</p><button class="button button-outline" type="button" id="empty-reset">Réinitialiser les filtres</button></div>
+  </main>
+  <dialog class="detail-dialog" id="trip-dialog" aria-labelledby="dialog-title"><div class="dialog-inner"><button class="icon-button dialog-close" type="button" aria-label="Fermer"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button><div id="trip-detail"></div></div></dialog>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a><p>La mobilité durable se construit ensemble.</p><span>Données fictives · aucune réservation n’est réelle</span></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

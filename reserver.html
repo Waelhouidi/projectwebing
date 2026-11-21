@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Simulez une réservation de covoiturage avec GreenMobility.">
+  <title>Réserver un trajet — GreenMobility</title><link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script defer src="assets/js/model.js"></script><script defer src="assets/js/view.js"></script><script defer src="assets/js/controller.js"></script><script defer src="assets/js/app.js"></script>
+</head>
+<body data-page="book">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="GreenMobility, accueil"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" aria-label="Navigation principale"><a href="index.html" data-nav="home">Accueil</a><a href="rechercher.html" data-nav="search">Rechercher</a><a href="proposer.html" data-nav="offer">Proposer</a><a href="reserver.html" data-nav="book">Réserver</a><a href="mes-trajets.html" data-nav="mine">Mes trajets</a></nav></div></header>
+  <main class="container page-main" id="contenu">
+    <div class="page-heading"><div><span class="eyebrow">On fait la route ensemble ?</span><h1>Réservez votre place.</h1><p>Une réservation de démonstration, sans paiement réel.</p></div></div>
+    <div class="booking-layout">
+      <section class="booking-main" id="booking-trip"><div class="loading-card">Chargement du trajet…</div></section>
+      <aside class="summary-card" id="booking-summary"><span class="summary-kicker">Récapitulatif</span><h2>Votre réservation</h2><div class="summary-route" id="summary-route"><span>Sélectionnez un trajet pour continuer.</span></div><div class="summary-line"><span>Prix par place</span><strong id="summary-unit">—</strong></div><div class="summary-line"><label for="booking-seats">Nombre de places</label><select id="booking-seats" disabled><option value="1">1 place</option></select></div><div class="summary-total"><span>Total estimé</span><strong id="summary-total">— TND</strong></div><p class="small-muted">Aucun paiement ne sera effectué. Cette simulation est enregistrée sur cet appareil.</p></aside>
+    </div>
+    <section class="form-card booking-form-card" id="booking-form-wrap" hidden>
+      <form id="booking-form" novalidate>
+        <div class="form-section-title"><span class="step-number">02</span><div><h2>Vos coordonnées</h2><p>Utilisées uniquement pour identifier cette réservation locale.</p></div></div>
+        <div class="field-grid"><label class="field"><span>Prénom *</span><input name="firstName" required maxlength="60" autocomplete="given-name"><small class="field-error" data-error="firstName"></small></label><label class="field"><span>Nom *</span><input name="lastName" required maxlength="60" autocomplete="family-name"><small class="field-error" data-error="lastName"></small></label><label class="field"><span>Email *</span><input name="email" required type="email" maxlength="120" autocomplete="email"><small class="field-error" data-error="email"></small></label><label class="field"><span>Téléphone *</span><input name="phone" required type="tel" maxlength="24" autocomplete="tel" placeholder="+216 …"><small class="field-error" data-error="phone"></small></label></div>
+        <div class="form-actions"><p class="form-footnote">Votre réservation reste fictive et propre à ce navigateur.</p><button class="button button-primary" type="submit">Confirmer la réservation</button></div>
+      </form>
+      <div class="form-feedback" id="booking-feedback" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a><p>La mobilité durable se construit ensemble.</p><span>Simulation locale · aucun paiement</span></div></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

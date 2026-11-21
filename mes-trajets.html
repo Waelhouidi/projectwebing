@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Consultez vos offres, réservations et statistiques de mobilité GreenMobility.">
+  <title>Mes trajets et statistiques — GreenMobility</title><link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script defer src="assets/js/model.js"></script><script defer src="assets/js/view.js"></script><script defer src="assets/js/controller.js"></script><script defer src="assets/js/app.js"></script>
+</head>
+<body data-page="mine">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="GreenMobility, accueil"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="site-nav" id="site-nav" aria-label="Navigation principale"><a href="index.html" data-nav="home">Accueil</a><a href="rechercher.html" data-nav="search">Rechercher</a><a href="proposer.html" data-nav="offer">Proposer</a><a href="reserver.html" data-nav="book">Réserver</a><a href="mes-trajets.html" data-nav="mine">Mes trajets</a></nav></div></header>
+  <main class="container page-main" id="contenu">
+    <div class="page-heading"><div><span class="eyebrow">Votre espace local</span><h1>Mes trajets.</h1><p>Retrouvez vos réservations et les offres créées depuis ce navigateur.</p></div><a class="button button-primary" href="rechercher.html">Trouver un trajet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+    <section class="dashboard-stats" aria-label="Vos statistiques"><article class="dashboard-stat"><span class="dashboard-stat-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><div><strong id="my-trip-count">0</strong><span>réservations</span></div></article><article class="dashboard-stat"><span class="dashboard-stat-icon stat-yellow"><i class="fa-solid fa-coins" aria-hidden="true"></i></span><div><strong id="my-spending">0 TND</strong><span>dépenses simulées</span></div></article><article class="dashboard-stat"><span class="dashboard-stat-icon stat-blue"><i class="fa-solid fa-leaf" aria-hidden="true"></i></span><div><strong id="my-co2">0 kg</strong><span>CO₂ estimé évité*</span></div></article></section>
+    <div class="dashboard-grid">
+      <section class="list-section"><div class="list-heading"><div><span class="eyebrow">Vos places réservées</span><h2>Mes réservations</h2></div><span class="count-pill" id="booking-count">0</span></div><div id="my-bookings" class="my-list"></div></section>
+      <section class="list-section"><div class="list-heading"><div><span class="eyebrow">Vos offres publiées</span><h2>Mes trajets proposés</h2></div><a class="text-link" href="proposer.html">+ Ajouter</a></div><div id="my-offers" class="my-list"></div></section>
+    </div>
+    <section class="safety-panel"><div class="safety-icon"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i></div><div><span class="eyebrow">Un trajet serein</span><h2>Quelques réflexes utiles</h2><p>Choisissez un lieu de rencontre public, confirmez l’heure et les détails du trajet avant le départ, et partagez votre itinéraire avec une personne de confiance. Faites confiance à votre jugement.</p></div><div class="safety-tag">Conseils de sécurité</div></section>
+    <p class="method-note">* Estimation indicative : 120 g de CO₂ évités par passager et par kilomètre partagé, avec des distances approximatives. Il ne s’agit pas d’une mesure réelle.</p>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark">G</span><span>Green<span class="brand-light">Mobility</span></span></a><p>La mobilité durable se construit ensemble.</p><span>Données enregistrées localement dans votre navigateur</span></div></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
